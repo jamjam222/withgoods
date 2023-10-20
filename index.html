@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>위드굿즈</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function () {
+            var swiper = new Swiper(".mySwiper", {
+                spaceBetween: 30,
+                centeredSlides: true,
+                loop: true,
+
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+
+            $('.menu_open').click(function () {
+                $('nav').slideDown()
+            })
+            $('.menu_close a img').click(function () {
+                $('nav').slideUp()
+            })
+
+            $('.left ul li').click(function () {
+                $('.left ul li').removeClass('on')
+                $(this).addClass('on')
+
+                $('.list').removeClass('on')
+                $('.list').eq($(this).index()).addClass('on')
+
+                /*                 $('.left ul li.on').css({
+                                    'background-color': 'transparent';
+                                }) */
+            })
+
+            let smallImage = $('.item_wrap .item')
+            let bigImage = $('.list .left img')
+
+            smallImage.mouseenter(function () {
+                let bigImageChange = $(this).find('img').attr('src')
+                let bigTextChange = $(this).find('p').text()
+
+                console.log(bigImageChange)
+                console.log(bigTextChange)
+
+                bigImage.attr('src', bigImageChange)
+                $('.item_info top').text(bigTextChange)
+
+                $('.right .item_info div').removeClass('on')
+                $('.right .item_info div').eq($(this).index()).addClass('on')
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+            <a href="#"><img src="img/logo.png" alt=""></a>
+            <div class="menu_open">
+                <a href="#"><img src="img/menu-burger.png" alt=""></a>
+            </div><!-- .menu_open -->
+
+            <nav>
+                <div class="menu_close">
+                    <a href="#">
+                        <img src="img/free-icon-font-cross-3917759 (1).png" alt="">
+                    </a>
+                    <ul class="gnb">
+                        <li><a href="#">굿즈샵</a></li>
+                        <li><a href="#">굿즈제작</a></li>
+                        <li><a href="#">단체주문</a></li>
+                        <li><a href="#">굿즈컨설팅</a></li>
+                        <li><a href="#">리뷰</a></li>
+                    </ul><!-- .gnb end -->
+                </div><!-- .menu_close end -->
+            </nav>
+        </div><!-- .inner end -->
+    </header>
+
+    <section class="main_visual">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/pexels-rodolfo-clix-1036936.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/1.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/2.jpeg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/4.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/5.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section><!-- .main_visual end -->
+
+    <section class="tab">
+        <div class="left">
+            <ul>
+                <li class="on"><span>마음을 적시는 빗소리</span></li>
+                <li><span>싱그러운 여름보내기</span></li>
+                <li><span>시원한 바다 보면서 힐링하기~</span></li>
+                <li><span>동물을 보호해요!</span></li>
+                <li><span>오비라거 마스코트 랄라베어</span></li>
+            </ul>
+        </div><!-- .left end -->
+
+        <div class="right">
+            <div class="list on">
+                <div class="item">
+                    <figure>
+                        <img src="img/WqTVhH1VD.png" alt="">
+                    </figure>
+                    <div>
+                        <p>by 조윤윤</p>
+                        <h3>내이름은 곽만춘</h3>
+                        <span>치얼스 비어캔 글라스</span>
+                        <strong>17,500원</strong>
+                    </div>
+                </div><!-- .item end -->
+                <div class="item">
+                    <figure>
+                        <img src="img/7tZ1RL-92.png" alt="">
+                    </figure>
+                    <div>
+                        <p>by kosunggyu</p>
+                        <h3>추억편_소나기</h3>
+                        <span>우드 코스터 원형</span>
+                        <strong>12,000원</strong>
+                    </div>
+                </div><!-- .item end -->
+            </div><!-- .list end / 1 -->
+
+            <div class="list">
+                <div class="item">
+                    <figure>
+                        <img src="img/싱그러운1.png" alt="">
+                    </figure>
+                    <div>
+                        <p>by 씨솔</p>
+                        <h3>와이키키비치리조트</h3>
+                        <span>베이직 패브릭 포스터(세로형)</span>
+                        <strong>24,000원</strong>
+                    </div>
+                </div><!-- .item end -->
+                <div class="item">
+                    <figure>
+                        <img src="img/싱그러운2.png" alt="">
+                    </figure>
+                    <div>
+                        <p>by 호왕</p>
+                        <h3>수박 냠! 글라스</h3>
+                        <span>위드 그랑 글라스</span>
+                        <strong>25,000원</strong>
+                    </div>
+                </div><!-- .item end -->
+            </div><!-- .list end / 2-->
+
+            <div class="list">
+                <div class="item">
+                    <figure>
+                        <img src="img/시원한1.png" alt="">
+                    </figure>
+                    <div>
+                        <p>by 유하</p>
+                        <h3>The wave</h3>
+                        <span>하이볼 유리컵</span>
+                        <strong>15,000원</strong>
+                    </div>
+                </div><!-- .item end -->
+                <div class="item">
+                    <figure>
+                        <img src="img/시원한2.png" alt="">
+                    </figure>
+                    <div>
+                        <p>by 레온</p>
+                        <h3>Blue Water</h3>
+                        <span>우드 코스터 원형</span>
+                        <strong>12,000원</strong>
+                    </div>
+                </div><!-- .item end -->
+            </div><!-- .list end / 3 -->
+
+            <div class="list">
+                <div class="item">
+                    <figure>
+                        <img src="img/동물보호1.png" alt="">
+                    </figure>
+                    <div>
+                        <p>by 세러데이무드</p>
+                        <h3>[스위밍댄스]훌라수달즈</h3>
+                        <span>비어 유리컵</span>
+                        <strong>18,500원</strong>
+                    </div>
+                </div><!-- .item end -->
+                <div class="item">
+                    <figure>
+                        <img src="img/동물보호2.png" alt="">
+                    </figure>
+                    <div>
+                        <p>by 닥터수달</p>
+                        <h3>제주도 남방큰돌고래</h3>
+                        <span>우드 코스터 원형</span>
+                        <strong>12,000원</strong>
+                    </div>
+                </div><!-- .item end -->
+            </div><!-- .list end / 4 -->
+
+            <div class="list">
+                <div class="item">
+                    <figure>
+                        <img src="img/랄라베어.png" alt="">
+                    </figure>
+                    <div>
+                        <p>by 오비-라거</p>
+                        <h3>랄라베어 먹고더블로곰</h3>
+                        <span>아이폰12</span>
+                        <strong>17,000원</strong>
+                    </div>
+                </div><!-- .item end -->
+                <div class="item">
+                    <figure>
+                        <img src="img/랄라베어2.png" alt="">
+                    </figure>
+                    <div>
+                        <p>by 오비-라거</p>
+                        <h3>랄라베어 하하하곰</h3>
+                        <span>위드 썸머 쿠션</span>
+                        <strong>25,000원</strong>
+                    </div>
+                </div><!-- .item end -->
+            </div><!-- .list end / 5 -->
+
+        </div><!-- .right end -->
+
+    </section><!-- .tab end -->
+
+    <section class="goods">
+
+        <div class="title">
+            <h2>취향별 인기 굿즈</h2>
+            <a href="#">전체보기 ></a>
+        </div><!-- .title end -->
+
+        <div class="inner">
+            <div class="list">
+                <figure class="left">
+                    <img src="img/carrot.png" alt="">
+                </figure><!-- .left -->
+
+                <div class="right">
+                    <div class="item_info">
+                        <div class="on">
+                            <section>
+                                <h1>당근과 레몬</h1>
+                                <p>비어 유리컵 | 데일리 컬렉션</p>
+                                <h5>터키의 글라스웨어 제작사인 파사바체의 유리컵입니다.<br>
+                                    귀여운 당근과 레몬으로 지친 일상을 힐링하세요</h5>
+                            </section>
+                            <a href="#">바로가기</a>
+                        </div><!-- .top end -->
+                        <div>
+                            <section>
+                                <h1>룡비</h1>
+                                <p>라운드 머그컵 | 머그컵</p>
+                                <h5>뜨거운 물과 전자레인지 사용 가능합니다.<br>
+                                    신이나서 신나게 춤추는 귀여운 공룡 룡비</h5>
+                            </section>
+                            <a href="#">바로가기</a>
+                        </div>
+                        <div>
+                            <section>
+                                <h1>귀여운 아기 곰 베어</h1>
+                                <p>비어 유리컵 | 데일리 컬렉션</p>
+                                <h5>터키의 글라스웨어 제작사인 파사바체의 유리컵입니다.<br>
+                                    너무 귀여운 아기 곰 캐릭터 입니다.</h5>
+                            </section>
+                            <a href="#">바로가기</a>
+                        </div>
+                        <div class="bottom">
+                            <a href="#">바로가기</a>
+                        </div><!-- .bottom end -->
+                    </div><!-- .item_info end -->
+                    <div class="item_wrap">
+                        <div class="item">
+                            <figure>
+                                <img src="img/carrot.png" alt="">
+                            </figure>
+                            <p>당근과 레몬</p>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/룡비.png" alt="">
+                            </figure>
+                            <p>룡비</p>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/bear.png" alt="">
+                            </figure>
+                            <p>귀여운 아기 곰 베어</p>
+                        </div><!-- .item end -->
+                    </div><!-- .item_wrap end -->
+                </div><!-- .right end -->
+            </div><!-- .list end -->
+        </div><!-- .inner end -->
+    </section><!-- .goods end -->
+
+    <section class="review">
+
+        <div class="title">
+            <h2>생생한 리뷰</h2>
+            <a href="#">전체보기 ></a>
+        </div><!-- .title end -->
+
+        <div class="list">
+            <div class="item">
+                <figure>
+                    <img src="img/review3.jpeg" alt="">
+                </figure>
+                <h2>흑백바다 편안한 그 느낌
+                </h2>
+                <p>흑백이 주는 느낌!!
+                    위로님 블로그에서 보던 사진이 굿즈로도 나와서 너무너뮤 좋아요!! 앗 그리규 포장도 너무 깔끔!안전!하게 와서 기분이 더 좋습니다!!</p>
+            </div><!-- .item end -->
+            <div class="item">
+                <figure>
+                    <img src="img/review1.jpg" alt="">
+                </figure>
+                <h2>패브릭포스터 하나로 느낌 새로워지네요</h2>
+                <p>고양이의 파란하루 디자인 기대 이상이에요.
+                    패브릭포스터 s로 주문해봤는데 기대 이상이라 더 큰 사이즈도 주문할 생각이에요.
+                    디자인도 멋지지만 소재도 좋고 대만족이에요.
+                    지금은 거실에 자주 드나드는 곳에 걸어두었는데 오며가며 볼때마다 그냥 기분 좋아져요.
+                    계속 오며가며 느낀건데 머그컵으로도 주문해도 좋을듯 싶네요.</p>
+            </div><!-- .item end -->
+            <div class="item">
+                <figure>
+                    <img src="img/review2.jpeg" alt="">
+                </figure>
+                <h2>너무 예뻐요</h2>
+                <p>사진 굿즈인데 그림 그려놓은 듯한 느낌이에요 코스터 너무 예쁩니다</p>
+            </div><!-- .item end -->
+        </div><!-- .list end -->
+    </section><!-- .review end -->
+
+    <footer>
+        <a href="#">(주)공공공간</a>
+        <a href="#">사업자소개</a>
+        <a href="#">서비스 소개</a>
+        <a href="#">공지사항</a>
+        <a href="#">자주묻는질문</a>
+        <a href="#">이용약관</a>
+        <a href="#">저작권대리중개업</a>
+        <a href="#">표준업무규정</a>
+        <a href="#">개인정보처리방침</a>
+        <a href="#">문의하기</a>
+    </footer>
+</body>
+
+</html>
